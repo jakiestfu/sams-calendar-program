@@ -6,7 +6,7 @@ const app = document.querySelector('#app')
 
 app.innerHTML = `
   <header class="site-header">
-    <nav class="site-nav" aria-label="Main navigation"><span class="brand">Sam's floppy disks</span><div><a href="${base}">The story</a><a class="current" href="${base}data.html">Browse the disk data</a></div></nav>
+    <nav class="site-nav" aria-label="Main navigation"><span class="brand">Sam's floppy disks</span><div><a href="${base}">Programs</a><a class="current" href="${base}data.html">Disk data</a></div></nav>
     <div class="hero data-hero"><p class="eyebrow">The readable records</p><h1>Inside the disks<span class="cursor">_</span></h1><p>Birthdays, month tables, old contact lists, notes, and the words written into the programs. You can read all of this without starting the emulator.</p></div>
   </header>
   <main class="data-main">
@@ -18,7 +18,7 @@ app.innerHTML = `
     <section id="documents" aria-labelledby="documents-title"><div class="section-head"><p class="eyebrow">Other readable files</p><h2 id="documents-title">Notes, forms, and little tools</h2></div><p class="section-intro">The address-book material includes a blank screen template, but no saved telephone database was found. The letter addressed to Samuel was on one calendar disk. The promissory-note text explicitly calls itself a test.</p><div id="documents-list" class="document-grid"></div></section>
     <section id="program-words" aria-labelledby="program-words-title"><div class="section-head"><p class="eyebrow">Inside the code</p><h2 id="program-words-title">Words written into each program</h2></div><p class="section-intro">These are the quoted text strings found in every decoded BASIC listing: menus, messages, filenames, and printed words. Open a program to browse them, or read the full source listing.</p><div id="program-text" class="program-text"></div></section>
   </main>
-  <footer><a href="${base}">← Back to the family story</a><span>The original disk files remain unchanged.</span></footer>
+  <footer><a href="${base}">← Back to programs</a><span>The original disk files remain unchanged.</span></footer>
 `
 
 const make = (tag, className, text) => {

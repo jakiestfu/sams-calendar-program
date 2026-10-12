@@ -6,14 +6,14 @@ export const chapters = [
     date: 'March 30, 1988',
     dateIso: '1988-03-30',
     dateKind: 'Saved file dates',
-    title: 'A calendar for real people',
-    short: 'Family birthdays and reminders',
-    intro: 'The oldest dated reminder files in this copy are full of birthdays and everyday plans. A later calendar program shows how those same files became part of a family tool.',
+    title: 'Birthday and reminder files',
+    short: 'Birthday and reminder files',
+    intro: 'The oldest dated files in this copy contain birthdays and reminders. The later calendar program can read these month files and print their entries.',
     evidence: 'The JAN and JUL reminder files both carry March 30, 1988 modification dates in the preserved disk copy. A saved date can differ from the date a line was written.',
     programId: 'calendar-98-hemet',
     steps: [
       {
-        title: 'He wrote down the dates',
+        title: 'Dates in the files',
         code: 'JAN 25  SUZY KELLEY.....BIRTHDAY\nJUL 24  LISA FOX........BIRTHDAY',
         plain: 'Each line is a reminder. These entries may refer to Susan and Lisa; the names on the disks are “Suzy Kelley” and “Lisa Fox.”',
         source: 'JAN and JUL data files'
@@ -38,9 +38,9 @@ export const chapters = [
     date: 'June 8, 1989',
     dateIso: '1989-06-08',
     dateKind: 'Saved file date',
-    title: 'The calendar learned the months',
-    short: 'Names and days in a data file',
-    intro: 'A separate file gave the program the month names and the number of days in each one. This made the calendar easier to reuse.',
+    title: 'Month names and day counts',
+    short: 'Month data file',
+    intro: 'A separate file lists month names and their day counts. The calendar reads that file to lay out its dates.',
     evidence: 'MONTHS.DAT in the preserved disk copy has a June 8, 1989 modification date. The date belongs to the file, not necessarily to the calendar program.',
     programId: 'calendar-89',
     steps: [
@@ -70,7 +70,7 @@ export const chapters = [
     date: '1990',
     dateKind: 'Year in the program',
     title: 'Three months on one screen',
-    short: 'The heart of Sam’s calendar',
+    short: 'Three-month layout',
     intro: 'The calendar versions named CALEND89 and CALEND91 both use the weekday layout for January 1990. Their filenames do not tell us when they were written.',
     evidence: 'Both files set J1=2, a Monday start for January 1, 1990. This is a configured calendar year, not a verified edit date.',
     programId: 'calendar-89',
@@ -107,9 +107,9 @@ export const chapters = [
     date: 'September 27, 1993',
     dateIso: '1993-09-27',
     dateKind: 'Saved file date',
-    title: 'A fresh start button',
-    short: 'A tiny setup program',
-    intro: 'A four-line utility prepared GW-BASIC for another session. Its size is part of the charm: sometimes a useful program is only a few instructions.',
+    title: 'GW-BASIC setup utility',
+    short: 'Four-line setup utility',
+    intro: 'This four-line program hides function-key labels, sets screen colors, clears the screen, and resets GW-BASIC for a new session.',
     evidence: 'CLEAN.BAS carries a September 27, 1993 modification date in the preserved disk copy. B.BAT, which starts it, is dated September 24, 1993.',
     programId: 'clean',
     steps: [
@@ -122,7 +122,7 @@ export const chapters = [
       {
         title: 'Set the colors and clear the screen',
         code: '20 COLOR 15,1\n30 CLS',
-        plain: 'The screen gets Sam’s preferred colors and a clean slate.',
+        plain: 'It sets the text and background colors, then clears the screen.',
         source: 'CLEAN.BAS, lines 20–30'
       },
       {
@@ -139,9 +139,9 @@ export const chapters = [
     date: 'February 26, 1998',
     dateIso: '1998-02-26',
     dateKind: 'Saved file date',
-    title: 'The calendar kept going',
-    short: 'A revised version for 1998',
-    intro: 'A later copy recalibrates the calendar for 1998 and includes a printed list of local contacts. Two versions survive with different contact lists.',
+    title: '1998 calendar revision',
+    short: '1998 calendar revision',
+    intro: 'This copy sets the calendar for 1998 and prints local contact numbers. Two versions have the same calendar logic but different contact lists.',
     evidence: 'The CALEND98.BAS file in sams-calendar-program-1 has a February 26, 1998 modification date. The other copy has the same calendar logic but different printed contacts.',
     programId: 'calendar-98-hemet',
     steps: [

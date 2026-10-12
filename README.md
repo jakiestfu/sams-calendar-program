@@ -16,9 +16,9 @@ The three folders appear to be separate disk copies or snapshots:
 
 The two `CALEND98.BAS` files have the same calendar logic but different first comments and different **printed emergency/contact lists**: one refers to Hemet and the other to the Kern area. The month and important-date data files are byte-for-byte identical across all three folders. The names in those files are historical family data, so this README does not repeat them.
 
-## Explore the family story and disk data
+## Explore the programs and disk data
 
-The [Vite](https://vite.dev/) site opens with **all fifteen programs beside the DOS emulator**. Click any program to start it immediately; choose another to switch. The selected program's summary, restart and stop controls, and decoded source are in the same panel. A shorter family timeline follows the launcher. Each stop explains one dated clue, shows Susan's and Lisa's ages, and walks through a few lines of code. Its **Run the related program** button returns to the launcher and starts that program.
+The [Vite](https://vite.dev/) site opens with **all fifteen programs beside the DOS emulator**. Click any program to start it immediately; choose another to switch. The selected program's summary, restart and stop controls, and decoded source are in the same panel. A dated file and code overview follows the launcher. Each entry explains a date or year, shows Susan's and Lisa's ages, and walks through a few lines of code. Its **Run this program** button returns to the launcher and starts that program.
 
 The separate **Browse the disk data** page (`data.html`) works without starting DOS. It collects all twelve month reminder files, the fourteen-row month table, the contact lists embedded in three calendar programs, readable notes and templates, batch-file text, and the quoted words in each of the fifteen decoded programs. It shows one copy where disk files have identical contents and gives the original path or source listing for each group. [`scripts/build_data.py`](scripts/build_data.py) regenerates its UTF-8 [`archive-data.json`](public/archive-data.json) from the recovered files and decoded listings; the originals are read only.
 
@@ -40,7 +40,7 @@ Other copies in this Git checkout have newer import timestamps, so the site leav
 
 ## Try the programs in a browser
 
-The app provides decoded source listings and a [js-dos](https://js-dos.com/dos-api.html) window configured with the **original `GWBASIC.EXE`** and tokenized programs. It builds a separate `.jsdos` archive for each program from the disk files. No application server is needed after the static build; js-dos itself is loaded from its CDN, so the browser needs a connection for the emulator. The story and disk-data pages do not require the emulator to start.
+The app provides decoded source listings and a [js-dos](https://js-dos.com/dos-api.html) window configured with the **original `GWBASIC.EXE`** and tokenized programs. It builds a separate `.jsdos` archive for each program from the disk files. No application server is needed after the static build; js-dos itself is loaded from its CDN, so the browser needs a connection for the emulator. The date overview and disk-data page do not require the emulator to start.
 
 With Node.js, pnpm, and Python 3 installed:
 

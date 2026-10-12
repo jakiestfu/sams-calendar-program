@@ -20,11 +20,11 @@ app.innerHTML = `
   <header class="site-header">
     <nav class="site-nav" aria-label="Main navigation">
       <span class="brand">Sam's floppy disks</span>
-      <div><a class="current" href="${base}">The story</a><a href="${base}data.html">Browse the disk data</a></div>
+      <div><a class="current" href="${base}">Programs</a><a href="${base}data.html">Disk data</a></div>
     </nav>
     <div class="hero home-hero">
       <div><p class="eyebrow">Sam's BASIC archive</p><h1>Pick a program<span class="cursor">_</span></h1></div>
-      <p>Click a name to run it beside the list. The family story is below.</p>
+      <p>Select a program to run it. Dates and code notes are below.</p>
     </div>
   </header>
 
@@ -41,10 +41,10 @@ app.innerHTML = `
           <div class="screen-frame">
             <div id="dos" class="dos" aria-label="DOS emulator"></div>
             <div id="screen-prompt" class="screen-prompt">
-              <span class="screen-prompt-label">Sam's DOS computer</span>
-              <p>Ready when you are.</p>
-              <button id="screen-run" type="button">Start program <span aria-hidden="true">→</span></button>
-              <small>Or choose another program on the left.</small>
+              <span class="screen-prompt-label">DOS emulator</span>
+              <p>Program ready</p>
+              <button id="screen-run" type="button">Start selected program <span aria-hidden="true">→</span></button>
+              <small>Choosing a program on the left starts it directly.</small>
             </div>
           </div>
           <p class="emulator-help">Click the DOS window to type. At the BASIC prompt: <code>LIST</code> shows code, <code>RUN</code> starts again, <code>SYSTEM</code> exits.</p>
@@ -54,15 +54,15 @@ app.innerHTML = `
     </section>
 
     <section class="timeline-section" aria-labelledby="timeline-title">
-      <div class="section-head"><p class="eyebrow">The story behind it</p><h2 id="timeline-title">How it came together</h2></div>
-      <p class="section-intro">The dates below are clues from saved files or years in the code, not a complete account of when Sam wrote each program.</p>
+      <div class="section-head"><p class="eyebrow">From the recovered files</p><h2 id="timeline-title">Dates and code</h2></div>
+      <p class="section-intro">Browse dated files and years found in the programs. Saved dates show when these copies were last changed; they do not establish when Sam first wrote the code.</p>
       <div id="timeline" class="timeline" role="group" aria-label="Timeline stops"></div>
       <article class="story-card">
         <div class="story-meta"><span id="story-date-kind" class="date-kind"></span><span id="story-date"></span></div>
         <h3 id="story-title"></h3>
         <p id="story-intro" class="story-intro"></p>
-        <div class="story-actions"><div class="age-results"><span id="susan-age"></span><span id="lisa-age"></span></div><button id="run-chapter" class="story-run" type="button">Run the related program ↑</button></div>
-        <details class="evidence"><summary>Where does this date come from?</summary><p id="story-evidence"></p><p>Birth years came from family; January 25 and July 24 are birthday entries on the disks. The age calculation uses those entries for Susan and Lisa.</p></details>
+        <div class="story-actions"><div class="age-results"><span id="susan-age"></span><span id="lisa-age"></span></div><button id="run-chapter" class="story-run" type="button">Run this program ↑</button></div>
+        <details class="evidence"><summary>Date source</summary><p id="story-evidence"></p><p>Susan's and Lisa's birth years were provided separately. January 25 and July 24 are birthday entries in the disk files and are used for the age calculations.</p></details>
         <div class="walkthrough">
           <div class="walkthrough-head"><h4>A few lines of code, explained</h4><span id="step-count"></span></div>
           <div class="step"><div><h5 id="step-title"></h5><p id="step-plain"></p><span id="step-source" class="source-note"></span></div><pre id="step-code"></pre></div>
