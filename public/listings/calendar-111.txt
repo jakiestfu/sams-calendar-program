@@ -1,0 +1,78 @@
+100  COLOR 15,1:CLS:KEY OFF:DEFSTR F,N,Z:DEFINT A,C-D,G-M,O-W
+110  ESC$ = CHR$(27):KEY 10,"EDIT "
+120  YR=VAL(RIGHT$(DATE$,2)):Z2=STR$(1900+YR):Z1=Z2:Z3=Z2
+130  DIM M(18,7):DIM D(13):DIM N(13):DIM Z(18,7):DIM ZA(20)
+140    IF YR/4-INT(YR/4)=0 THEN D(2)=29   '             Check if Leap year
+145    J1=2  ' January 1/89 is on day 1
+147  '=====================================================================
+150  GOSUB 960:CLS
+155  LOCATE 18,23:PRINT "OPTIONS MENU"
+160  LOCATE 19,23:PRINT STRING$(12,61)
+165  LOCATE 20,20:PRINT "1. CALCULATE MONTH"
+170  LOCATE 21,20:PRINT "2. PRINT SCREEN"
+175  LOCATE 22,20:PRINT "3. SELECT PRINTER"
+180  LOCATE 23,20:PRINT "4. QUIT PROGRAM"
+185  LOCATE 24,20:LINE INPUT "CHOOSE OPTION (1/2/3/4) ";OPT$
+190  P=VAL(OPT$)
+195  IF P < 1 OR P > 4 THEN GOTO 1030
+220  ON P GOSUB 240,640,1030,2000
+230  GOTO 170
+240  CLS:LOCATE 10,20:LINE INPUT "ENTER CURRENT MONTH # ";A$       '(1 to 12)
+250  MO=VAL(A$):K=MO-1
+260 SD=J1  'SD is start day             '
+270 J=0    'J counts from 1 to end of month
+280 IF K=0 THEN GOSUB 850:GOTO 360     '            see line 151
+290 IF K=11 THEN Z3=STR$(1901+YR)
+300 FOR A=1 TO MO-2
+310 IF MO-2=0 THEN 360
+320 SD=SD+D(A)-28
+330 IF SD > 7 THEN SD=SD-7
+340 NEXT A
+350 '====================
+360 FOR B=1 TO 18
+370 FOR C=1 TO 7
+380 IF B=1 AND C < SD THEN R=R+1:GOTO 470'           B=Row no. There are 6 rows
+390 IF J=D(K) AND R < 42 THEN 450        '           per month. C= Column no.
+400 IF J=D(K) THEN SD=SD+D(K)-28:S=SD:K=K+1:J=0:R=0' R counts to 42 which is the
+410 IF S > 7 THEN S=S-7                  '           total number of elements
+420 IF S > 1 THEN 450                    '           in M(B,C) per month.
+430 J=J+1
+440 M(B,C)=J
+450 R=R+1
+460 S=S-1:IF S < 0 THEN S=0
+470 Z(B,C)=STR$(M(B,C)):Z(B,C)=STRING$(4-LEN(Z(B,C)),32)+Z(B,C)
+480 IF Z(B,C)="   0" THEN MID$(Z(B,C),4,1)="  "'      Don't print zeros
+490 NEXT C,B
+500 FOR B=1 TO 18:FOR C=1 TO 7:ZA(B)=ZA(B)+Z(B,C):NEXT C,B
+510 '===========================================================================
+520 CLS: K=MO-1
+530 GOSUB 900
+540 NA="  SU  MO  TU  WE  TH  FR  SA"
+550 PRINT TAB(T1-14)N(K)+Z1 TAB(T2-45)N(K+2)+Z3     'Print screen
+560 FOR B=1 TO 6:PRINT ZA(B)TAB(35)ZA(B+12):NEXT
+570 PRINT :PRINT TAB(T3+2)N(K+1)+Z2
+580 FOR B=7 TO 12:PRINT TAB(18)ZA(B): NEXT
+590 IF INKEY$="" THEN 590
+600 RETURN
+610 '===================================================
+840 GOSUB 980
+850 SD=SD-3
+860 IF SD=<0 THEN SD=SD+7
+870 Z1=STR$(1899+YR)
+880 RETURN
+890 '======================================================================
+900 T1=LEN(N(K))+5:T1=30-T1/2
+910 T2=LEN(N(K+1))+5:T2=95-T2/2
+920 T3=LEN(N(K+2))+5:T3=31-T3/2:PRINT
+930 RETURN
+940 '======================================================================
+950 OPEN "I",1,"MONTHS.DAT":FOR J=0 TO 13:INPUT #1,N(J),D(J):NEXT:CLOSE 1
+960 RETURN
+970 '==================================================
+980 LPRINT:LPRINT
+990 LPRINT TAB(7) "* IMPORTANT DATES THIS MONTH ":LPRINT
+1000 OPEN "I",1,LEFT$(N(MO),3)
+1010 WHILE NOT EOF(1):INPUT #1,F:LPRINT TAB(9) F:WEND:CLOSE 1
+1020 END
+1030 CLS:LOCATE 10,20:PRINT "Wrong number...try again from start.":GOTO 1020
+2000  END

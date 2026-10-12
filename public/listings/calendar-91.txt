@@ -1,0 +1,95 @@
+10  COLOR 15,1:CLS:KEY OFF:KEY 10,"EDIT ":DEFSTR F,N,Z:DEFINT A,C-D,G-M,O-W
+20  DIM M(18,7):DIM D(13):DIM N(13):DIM Z(18,7):DIM ZA(20)
+30  YR=VAL(RIGHT$(DATE$,2)):Z2=STR$(1900+YR):Z1=Z2:Z3=Z2
+35 IF YR/4-INT(YR/4)=0 THEN D(2)=29   '             Check if Leap year
+36 REM     array d(13) evidently holds days in each month
+37 REM     so d(2) is 29
+40 GOSUB 850 'Opens MONTH.DAT
+60 J1=2                                     ' January 1/90 is on day 2
+65 '__________________________________________________________________
+70 LOCATE 20,20:PRINT "#1. Calculate Month"
+80 LOCATE 21,20:PRINT "#2. Printout"
+90 LOCATE 22,20:PRINT "Select Number  ";
+95 '__________________________________________________________________
+100 LINE INPUT N
+110 X=VAL(N)
+120 ON X GOSUB 140,740
+130 GOTO 70
+135 '_______________________________________________________________________
+140 CLS:LOCATE 22,20:PRINT "Enter Month  ";          '(1 to 12)
+150 LINE INPUT N:MO=VAL(N):K=MO-1
+155 '______________________________________________________________________
+160 SD=J1 'starting day of the year..set manually once per year
+170   LET J=0    'J counts from 1 to end of month
+180 IF K=0 THEN GOSUB 750:GOTO 260     'IF K<>0 THEN it can be any month
+181 ' K is set to MO-1 in line 150. If K=0 THEN it has to be January (1-1)=0
+182 'line 750
+190 IF K=11 THEN Z3=STR$(1901+YR)
+191 'IF K=11 (K=MO-1) MO has to be DECEMBER of last year (?)
+200 FOR A=1 TO MO-2
+210 IF MO-2=0 THEN 260 'where calculation begins
+220 SD=SD+D(A)-28
+230 IF SD > 7 THEN SD=SD-7
+240 NEXT A
+250 '====================
+260 FOR B=1 TO 18
+270 FOR C=1 TO 7
+280 IF B=1 AND C < SD THEN R=R+1:GOTO 370'           B=Row no. There are 6 rows
+290 IF J=D(K) AND R < 42 THEN 350        '           per month. C= Column no.
+300 IF J=D(K) THEN SD=SD+D(K)-28:S=SD:K=K+1:J=0:R=0' R counts to 42 which is the
+310 IF S > 7 THEN S=S-7                  '           total number of elements
+320 IF S > 1 THEN 350                    '           in M(B,C) per month.
+330 J=J+1
+340 M(B,C)=J
+350 R=R+1
+360 S=S-1:IF S < 0 THEN S=0
+370 Z(B,C)=STR$(M(B,C)):Z(B,C)=STRING$(4-LEN(Z(B,C)),32)+Z(B,C)
+380 IF Z(B,C)="   0" THEN MID$(Z(B,C),4,1)="  "'      Don't print zeros
+390 NEXT C,B
+400 FOR B=1 TO 18:FOR C=1 TO 7:ZA(B)=ZA(B)+Z(B,C):NEXT C,B
+410 '===========================================================================
+420 CLS: K=MO-1
+430 GOSUB 800
+440 NA="  SU  MO  TU  WE  TH  FR  SA"
+450 PRINT TAB(T1-14)N(K)+Z1 TAB(T2-45)N(K+2)+Z3     'Print screen
+460 FOR B=1 TO 6:PRINT ZA(B)TAB(35)ZA(B+12):NEXT
+470 PRINT :PRINT TAB(T3+2)N(K+1)+Z2
+480 FOR B=7 TO 12:PRINT TAB(18)ZA(B): NEXT
+490 IF INKEY$="" THEN 490
+500 RETURN
+510 '===================================================
+620 LPRINT:LPRINT:LPRINT
+630 LPRINT TAB(T1-5)N(K)+Z1 TAB(T2-36)N(K+2)+Z3
+640 LPRINT
+650 LPRINT TAB(8)NA TAB(43) NA
+660 LPRINT
+670 FOR B=1 TO 6:LPRINT TAB(8)ZA(B)TAB(43)ZA(B+12):LPRINT:NEXT
+680 LPRINT ESC$ "W1"
+690 LPRINT TAB(T3-11) N(K+1)+Z2
+700 LPRINT:LPRINT
+710 LPRINT TAB(5)NA:LPRINT:LPRINT
+720 FOR B=7 TO 12:LPRINT TAB(5)ZA(B):LPRINT:NEXT:CLOSE
+730 LPRINT ESC$ "W0"
+740 GOTO 920 'temporary end of program
+745 '________________________________
+750 SD=SD-3
+760 IF SD=<0 THEN SD=SD+7
+770 Z1=STR$(1899+YR)
+775 '__________________________________
+780 RETURN
+790 '======================================================================
+800 T1=LEN(N(K))+5:T1=30-T1/2
+810 T2=LEN(N(K+1))+5:T2=95-T2/2
+820 T3=LEN(N(K+2))+5:T3=31-T3/2:PRINT
+830 RETURN
+840 '======================================================================
+850 OPEN "I",1,"MONTHS.DAT":FOR J=0 TO 13:INPUT #1,N(J),D(J):NEXT:CLOSE 1
+860 RETURN  'returns to  line 50 to check if leap year
+861 'array N(J) contains the months:array D(J) contains the # days in the month
+870 '==================================================
+880 LPRINT:LPRINT
+890 LPRINT TAB(7) "* IMPORTANT DATES THIS MONTH ":LPRINT
+900 OPEN "I",1,LEFT$(N(MO),3)
+910 WHILE NOT EOF(1):INPUT #1,F:LPRINT TAB(9) F:WEND:CLOSE 1
+920 CLS:END
+1150 -160

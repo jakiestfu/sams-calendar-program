@@ -1,0 +1,15 @@
+{
+  "name": "sams-calendar-archive",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "prepare:archive": "python3 scripts/build_bundles.py && python3 scripts/build_data.py",
+    "dev": "python3 scripts/build_bundles.py && python3 scripts/build_data.py && vite",
+    "build": "python3 scripts/build_bundles.py && python3 scripts/build_data.py && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^7.3.1"
+  }
+}

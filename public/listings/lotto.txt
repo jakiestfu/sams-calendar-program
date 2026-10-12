@@ -1,0 +1,18 @@
+30 COLOR 14,4:KEY OFF:KEY 10,"EDIT ":CLS
+35 PRINT
+40 A$="####"'
+50 RANDOMIZE TIMER'               Formula is: R=INT(RND*(B-A+1)+A)
+52 LOCATE 10,10
+53 PRINT "Select these LOTTO numbers:"
+55 FOR D=1 TO 6
+60 A=INT(RND*49+1)'               where R = the RANdom number
+70 '                              B = the largest INTeger
+80 '                              A = the smallest INTeger
+90 PRINT TAB(35) USING A$;A
+100 NEXT
+105 PRINT
+110 PRINT TAB(20)"* If there are repeats, re-run the program."
+111 PRINT TAB(22) STRING$(40,61)
+113 PRINT TAB(21)" or total the integers in one of them and
+123 PRINT TAB(21)" create a new number. e.g. If the number
+133 PRINT TAB(21)" is "42"..then total the integers to "6".

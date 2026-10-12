@@ -1,0 +1,35 @@
+100  REM
+101  REM   The following program selects any of 128 different print styles.
+102  REM   It can be used as a handy reference chart showing all of the
+103  REM   possible print mode numbers along with a sample of each of the
+104  REM   180-D's print styles.
+105  REM
+110  DEFSTR E:E = CHR$(27)
+120  LPRINT E "!" CHR$(56)
+130  LPRINT  "    CITIZEN 180-D PRINT MODE CHART":LPRINT
+140  LPRINT  E "!" CHR$(0)
+150  LPRINT  "   UNL ITA EXP DBL EMP CMP PRO ELT"
+160  LPRINT  "   128  64  32  16  8   4   2   1":LPRINT
+170  FOR N7 = 0 TO 128 STEP 128
+180  FOR N6 = 0 TO  64 STEP  64
+190  FOR N5 = 0 TO  32 STEP  32
+200  FOR N4 = 0 TO  16 STEP  16
+210  FOR N3 = 0 TO   8 STEP   8
+220  FOR N2 = 0 TO   4 STEP   4
+230  FOR N1=  0 TO   2 STEP   2
+240  FOR N0 = 0 TO   1 STEP   1
+250  LPRINT  "  ";
+260  IF N7 THEN LPRINT  "| * ";ELSE LPRINT  "|   ";
+270  IF N6 THEN LPRINT  "| * ";ELSE LPRINT  "|   ";
+280  IF N5 THEN LPRINT  "| * ";ELSE LPRINT  "|   ";
+290  IF N4 THEN LPRINT  "| * ";ELSE LPRINT  "|   ";
+300  IF N3 THEN LPRINT  "| * ";ELSE LPRINT  "|   ";
+310  IF N2 THEN LPRINT  "| * ";ELSE LPRINT  "|   ";
+320  IF N1 THEN LPRINT  "| * ";ELSE LPRINT  "|   ";
+330  IF N0 THEN LPRINT  "| * ";ELSE LPRINT  "|   ";
+340  N = N0 +N1 + N2 + N3 + N4 + N5 + N6 + N7
+350  LPRINT  "|   ";
+360  LPRINT  E "!" CHR$(N) "PRINT MODE "N;
+370  LPRINT  E "!" CHR$(0)
+380  NEXT N0,N1,N2,N3,N4,N5,N6,N7
+390  LPRINT E "@"

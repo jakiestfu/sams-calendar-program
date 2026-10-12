@@ -1,0 +1,93 @@
+10  COLOR 3:CLS:KEY OFF:KEY 10,"EDIT ":DEFSTR F,N,Z:DEFINT A,C-D,G-M,O-W
+15  ESC$ = CHR$(27)
+20  YR=VAL(RIGHT$(DATE$,2)):Z2=STR$(1900+YR):Z1=Z2:Z3=Z2
+30  DIM M(18,7):DIM D(13):DIM N(13):DIM Z(18,7):DIM ZA(20)
+40  GOSUB 4430
+110 IF YR/4-INT(YR/4)=0 THEN D(2)=29   '             Check if Leap year
+120 J1=2  ' January 1/90 is on day 2
+122 LOCATE 20,20:PRINT "#1. Calculate Month"
+124 LOCATE 21,20:PRINT "#2. Printout"
+126 LOCATE 22,20:PRINT "Select Number  ";
+128 LINE INPUT N
+129 X=VAL(N)
+130 ON X GOSUB 150,4140
+132 GOTO 122
+150 CLS:LOCATE 22,20:PRINT "Enter Month  ";          '(1 to 12)
+151 LINE INPUT N:MO=VAL(N):K=MO-1
+160 SD=J1  'SD is start day             '
+162 J=0    'J counts from 1 to end of month
+163 IF K=0 THEN GOSUB 4330:GOTO 210     '            see line 151
+166 IF K=11 THEN Z3=STR$(1901+YR)
+170 FOR A=1 TO MO-2
+175 IF MO-2=0 THEN 210
+180 SD=SD+D(A)-28
+190 IF SD > 7 THEN SD=SD-7
+195 NEXT A
+196 '====================
+210 FOR B=1 TO 18
+215 FOR C=1 TO 7
+220 IF B=1 AND C < SD THEN R=R+1:GOTO 250'           B=Row no. There are 6 rows
+232 IF J=D(K) AND R < 42 THEN 245        '           per month. C= Column no.
+235 IF J=D(K) THEN SD=SD+D(K)-28:S=SD:K=K+1:J=0:R=0' R counts to 42 which is the
+236 IF S > 7 THEN S=S-7                  '           total number of elements
+237 IF S > 1 THEN 245                    '           in M(B,C) per month.
+240 J=J+1
+242 M(B,C)=J
+245 R=R+1
+246 S=S-1:IF S < 0 THEN S=0
+250 Z(B,C)=STR$(M(B,C)):Z(B,C)=STRING$(4-LEN(Z(B,C)),32)+Z(B,C)
+255 IF Z(B,C)="   0" THEN MID$(Z(B,C),4,1)="  "'      Don't print zeros
+260 NEXT C,B
+270 FOR B=1 TO 18:FOR C=1 TO 7:ZA(B)=ZA(B)+Z(B,C):NEXT C,B
+275 '===========================================================================
+4000 CLS: K=MO-1
+4010 GOSUB 4380
+4020 NA="  SU  MO  TU  WE  TH  FR  SA"
+4030 PRINT TAB(T1-14)N(K)+Z1 TAB(T2-45)N(K+2)+Z3     'Print screen
+4040 FOR B=1 TO 6:PRINT ZA(B)TAB(35)ZA(B+12):NEXT
+4050 PRINT :PRINT TAB(T3+2)N(K+1)+Z2
+4060 FOR B=7 TO 12:PRINT TAB(18)ZA(B): NEXT
+4070 IF INKEY$="" THEN 4070
+4080 RETURN
+4110 '===================================================
+4120 '                   * Printout *
+4130 '===================================================
+4140 LPRINT TAB(24)"Emergency.................911"
+4150 LPRINT TAB(24)"Fire Department...........376-2219"
+4160 LPRINT TAB(24)"Kern County Sheriff.......379-2641"
+4170 LPRINT TAB(24)"Kern Valley Hospital......379-2681"
+4180 LPRINT TAB(24)"Kern River Health.........376-2276"
+4190 LPRINT TAB(24)"Dr. Jenkins...............379-3753"
+4200 LPRINT TAB(24)"Dr. Lange.................378-2486"
+4210 LPRINT TAB(24)"Ambulance.................376-2271"
+4220 LPRINT:LPRINT:LPRINT
+4230 LPRINT TAB(T1-5)N(K)+Z1 TAB(T2-36)N(K+2)+Z3
+4240 LPRINT
+4250 LPRINT TAB(8)NA TAB(43) NA
+4260 LPRINT
+4270 FOR B=1 TO 6:LPRINT TAB(8)ZA(B)TAB(43)ZA(B+12):LPRINT:NEXT
+4275 LPRINT ESC$ "W1"
+4280 LPRINT TAB(T3-11) N(K+1)+Z2
+4290 LPRINT:LPRINT
+4295 LPRINT TAB(5)NA:LPRINT:LPRINT
+4310 FOR B=7 TO 12:LPRINT TAB(5)ZA(B):LPRINT:NEXT:CLOSE
+4315 LPRINT ESC$ "W0"
+4320 GOSUB 4460
+4330 SD=SD-3
+4340 IF SD=<0 THEN SD=SD+7
+4350 Z1=STR$(1899+YR)
+4360 RETURN
+4370 '======================================================================
+4380 T1=LEN(N(K))+5:T1=30-T1/2
+4390 T2=LEN(N(K+1))+5:T2=95-T2/2
+4400 T3=LEN(N(K+2))+5:T3=31-T3/2:PRINT
+4410 RETURN
+4420 '======================================================================
+4430 OPEN "I",1,"MONTHS.DAT":FOR J=0 TO 13:INPUT #1,N(J),D(J):NEXT:CLOSE 1
+4440 RETURN
+4450 '==================================================
+4460 LPRINT:LPRINT
+4470 LPRINT TAB(7) "* IMPORTANT DATES THIS MONTH ":LPRINT
+4480 OPEN "I",1,LEFT$(N(MO),3)
+4490 WHILE NOT EOF(1):INPUT #1,F:LPRINT TAB(9) F:WEND:CLOSE 1
+4500 CLS:END

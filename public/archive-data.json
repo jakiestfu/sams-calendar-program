@@ -1,0 +1,1072 @@
+{
+  "monthData": {
+    "path": "sams-calendar-program-1/MONTHS.DAT",
+    "rows": [
+      {
+        "name": "DECEMBER",
+        "days": 31
+      },
+      {
+        "name": "JANUARY",
+        "days": 31
+      },
+      {
+        "name": "FEBRUARY",
+        "days": 28
+      },
+      {
+        "name": "MARCH",
+        "days": 31
+      },
+      {
+        "name": "APRIL",
+        "days": 30
+      },
+      {
+        "name": "MAY",
+        "days": 31
+      },
+      {
+        "name": "JUNE",
+        "days": 30
+      },
+      {
+        "name": "JULY",
+        "days": 31
+      },
+      {
+        "name": "AUGUST",
+        "days": 31
+      },
+      {
+        "name": "SEPTEMBER",
+        "days": 30
+      },
+      {
+        "name": "OCTOBER",
+        "days": 31
+      },
+      {
+        "name": "NOVEMBER",
+        "days": 30
+      },
+      {
+        "name": "DECEMBER",
+        "days": 31
+      },
+      {
+        "name": "JANUARY",
+        "days": 31
+      }
+    ]
+  },
+  "reminders": [
+    {
+      "month": "JAN",
+      "path": "sams-calendar-program-1/JAN",
+      "lines": [
+        "JAN 11  M. BERNER.......BIRTHDAY",
+        "JAN 25  SUZY KELLEY.....BIRTHDAY"
+      ]
+    },
+    {
+      "month": "FEB",
+      "path": "sams-calendar-program-1/FEB",
+      "lines": [
+        "FEB 11  KAREN MEYERS....BIRTHDAY",
+        "FEB 12  LEE LOFF........BIRTHDAY"
+      ]
+    },
+    {
+      "month": "MAR",
+      "path": "sams-calendar-program-1/MAR",
+      "lines": [
+        "MAR 08  BERT COOK...........BIRTHDAY",
+        "MAR 19  SAM MEYERS..........BIRTHDAY",
+        "MAR 23  LARRY MEYERS........BIRTHDAY",
+        "MAR 28  PAY PROPERTY TAXES"
+      ]
+    },
+    {
+      "month": "APR",
+      "path": "sams-calendar-program-1/APR",
+      "lines": [
+        "APR 10  PROPERTY TAXES DUE TODAY!",
+        "APR 11  JAY MEYERS......BIRTHDAY",
+        "APR 29  MELISSA.........BIRTHDAY"
+      ]
+    },
+    {
+      "month": "MAY",
+      "path": "sams-calendar-program-1/MAY",
+      "lines": [
+        "MAY 03  TONI BOLCEN.....BIRTHDAY",
+        "MAY 16  BARBARA ANN.....BIRTHDAY",
+        "MAY 27  CAROL HOLLIS....BIRTHDAY"
+      ]
+    },
+    {
+      "month": "JUN",
+      "path": "sams-calendar-program-1/JUN",
+      "lines": [
+        "JUN 01  Robin Little....Birthday",
+        "JUN 04  Pay Homeowners Insurance",
+        "JUN 21  Betty Meyers....Birthday"
+      ]
+    },
+    {
+      "month": "JUL",
+      "path": "sams-calendar-program-1/JUL",
+      "lines": [
+        "JUL 05  BUD MEYERS......BIRTHDAY",
+        "JUL 10  ALLEN MEYERS....BIRTHDAY",
+        "JUL 24  LISA FOX........BIRTHDAY",
+        "JUL 29  JOLENE MEYERS...BIRTHDAY"
+      ]
+    },
+    {
+      "month": "AUG",
+      "path": "sams-calendar-program-1/AUG",
+      "lines": [
+        "AUG 06  LIL SULTAN......BIRTHDAY",
+        "AUG 16  BOB BOLCEN......BIRTHDAY"
+      ]
+    },
+    {
+      "month": "SEP",
+      "path": "sams-calendar-program-1/SEP",
+      "lines": [
+        "SEP 09  MEGHAN MEYERS...BIRTHDAY"
+      ]
+    },
+    {
+      "month": "OCT",
+      "path": "sams-calendar-program-1/OCT",
+      "lines": [
+        "OCT 15  LEAH............BIRTHDAY",
+        "OCT 28  HELENE..........BIRTHDAY"
+      ]
+    },
+    {
+      "month": "NOV",
+      "path": "sams-calendar-program-1/NOV",
+      "lines": [
+        "NOV 23  BERNICE WEISLER....BIRTHDAY",
+        "NOV 26  GENE FLANAGAN......95th BIRTHDAY!"
+      ]
+    },
+    {
+      "month": "DEC",
+      "path": "sams-calendar-program-1/DEC",
+      "lines": [
+        "DEC 03  BEA CHAPMAN......BIRTHDAY"
+      ]
+    }
+  ],
+  "contacts": [
+    {
+      "programId": "calendar-89",
+      "title": "Earlier Kern-area printout",
+      "lines": [
+        "Emergency.................911",
+        "Fire Department...........376-2219",
+        "Kern County Sheriff.......379-2641",
+        "Kern Valley Hospital......379-2681",
+        "Kern River Health.........376-2276",
+        "Dr. Jenkins...............379-3753",
+        "Dr. Lange.................378-2486",
+        "Ambulance.................376-2271"
+      ]
+    },
+    {
+      "programId": "calendar-98-kern",
+      "title": "1998 Kern-area copy",
+      "lines": [
+        "Emergency.................911",
+        "Fire Department...........376-2219",
+        "Kern County Sheriff.......379-2641",
+        "Kern Valley Hospital......379-2681",
+        "Kern River Health.........376-2276",
+        "Dr. Jenkins...............379-3753",
+        "Dr. Lange.................378-2486",
+        "Ambulance.................376-2271"
+      ]
+    },
+    {
+      "programId": "calendar-98-hemet",
+      "title": "1998 Hemet copy",
+      "lines": [
+        "Emergency.................911",
+        "Fire Department...........765-2450",
+        "Hemet Police Dept.........765-2500",
+        "Kaiser Information........353-2000",
+        "Kaiser Appointments.......688-6548",
+        "Dr. Ahmad.(VA)........800-741-8387",
+        "Leah Pazzelli.........805-872-8295",
+        "Suzy Kelley...............766-7546"
+      ]
+    }
+  ],
+  "documents": [
+    {
+      "title": "The note addressed to Samuel",
+      "path": "sams-calendar/README.DOC",
+      "text": "Dere Samuel.....I found most of this stuff on an old floppy disc.\nDid a little bit of repair work but not all. Primarily you need to adjust\nand/or replace data in the data files which no longer pertain  to the\ncurrent time frame. It's a beautiful little program that is impossible to\nfigure out why it works...all I know is that it does. At least until the end of the millenium, when the left$ of the Date$ turn\nto zeroes...probably have to enter the year date manually....or something.\n\n\t\t\t\t\t¿QUIEN SABé\n\t\t\t\t"
+    },
+    {
+      "title": "Address-book screen template",
+      "path": "sams-calendar-program/NAMES.DOC",
+      "text": "                    RECORD NO.    \n                                           \nLAST NAME--------                         .\nFIRST NAME-------                         .\nOTHER------------                         .\nADDRESS----------                         .\nCITY-------------                         .\nSTATE------------                         .\nZIP CODE---------                         .\nPHONES-----------                         .\nMISC.------------                         .\nMISC.------------                         .\n  F5     F6     F7     F8     F9      F10  \n FIND   EDIT   PRN    EXIT  GET REC   ADD  \n                          ESC              \n                      CANCEL EDIT"
+    },
+    {
+      "title": "Promissory-note test text",
+      "path": "sams-calendar-program/LEGNOTES.DAT",
+      "text": "This is just a test run with an\nimaginary promissory note just to see\nhow it works.\nAlso to check out the amortization\nschedule."
+    },
+    {
+      "title": "1998 startup batch file",
+      "path": "sams-calendar-program-1/B.BAT",
+      "text": "gwbasic clean"
+    },
+    {
+      "title": "Earlier startup batch file",
+      "path": "sams-calendar-program/B.BAT",
+      "text": "@echo off\ngwbasic clean"
+    },
+    {
+      "title": "Hex arithmetic batch file",
+      "path": "sams-calendar-program/HEX.BAT",
+      "text": "ECHO OFF\nIF !%2==! GOTO OOPS\nECHO H %1 %2 > DEBUG.SCR\nECHO Q >> DEBUG.SCR\nECHO The sum and difference of %1 and %2 are:\ndebug < debug.scr | find /v \"-\"\nDEL DEBUG.SCR\nGOTO END\n:OOPS\nECHO You have to enter %0 followed by\nECHO 2 hex numbers each FFFF or less\nECHO (e.g.%0 4D7F 5A4)\nEND"
+    }
+  ],
+  "programText": [
+    {
+      "programId": "calendar-98-hemet",
+      "title": "Calendar 1998 · Hemet copy",
+      "path": "sams-calendar-program-1/CALEND98.BAS",
+      "strings": [
+        {
+          "line": "10",
+          "text": "EDIT "
+        },
+        {
+          "line": "122",
+          "text": "#1. Calculate Month"
+        },
+        {
+          "line": "124",
+          "text": "#2. Printout"
+        },
+        {
+          "line": "126",
+          "text": "Select Number  "
+        },
+        {
+          "line": "150",
+          "text": "Enter Month  "
+        },
+        {
+          "line": "255",
+          "text": "   0"
+        },
+        {
+          "line": "4020",
+          "text": "  SU  MO  TU  WE  TH  FR  SA"
+        },
+        {
+          "line": "4140",
+          "text": "Emergency.................911"
+        },
+        {
+          "line": "4150",
+          "text": "Fire Department...........765-2450"
+        },
+        {
+          "line": "4160",
+          "text": "Hemet Police Dept.........765-2500"
+        },
+        {
+          "line": "4170",
+          "text": "Kaiser Information........353-2000"
+        },
+        {
+          "line": "4180",
+          "text": "Kaiser Appointments.......688-6548"
+        },
+        {
+          "line": "4190",
+          "text": "Dr. Ahmad.(VA)........800-741-8387"
+        },
+        {
+          "line": "4200",
+          "text": "Leah Pazzelli.........805-872-8295"
+        },
+        {
+          "line": "4210",
+          "text": "Suzy Kelley...............766-7546"
+        },
+        {
+          "line": "4275",
+          "text": "W1"
+        },
+        {
+          "line": "4315",
+          "text": "W0"
+        },
+        {
+          "line": "4430",
+          "text": "I"
+        },
+        {
+          "line": "4430",
+          "text": "MONTHS.DAT"
+        },
+        {
+          "line": "4470",
+          "text": "* IMPORTANT DATES THIS MONTH "
+        },
+        {
+          "line": "4480",
+          "text": "I"
+        }
+      ]
+    },
+    {
+      "programId": "calendar-98-kern",
+      "title": "Calendar 1998 · Kern copy",
+      "path": "sams-calendar/CALEND98.BAS",
+      "strings": [
+        {
+          "line": "10",
+          "text": "EDIT "
+        },
+        {
+          "line": "122",
+          "text": "#1. Calculate Month"
+        },
+        {
+          "line": "124",
+          "text": "#2. Printout"
+        },
+        {
+          "line": "126",
+          "text": "Select Number  "
+        },
+        {
+          "line": "150",
+          "text": "Enter Month  "
+        },
+        {
+          "line": "255",
+          "text": "   0"
+        },
+        {
+          "line": "4020",
+          "text": "  SU  MO  TU  WE  TH  FR  SA"
+        },
+        {
+          "line": "4140",
+          "text": "Emergency.................911"
+        },
+        {
+          "line": "4150",
+          "text": "Fire Department...........376-2219"
+        },
+        {
+          "line": "4160",
+          "text": "Kern County Sheriff.......379-2641"
+        },
+        {
+          "line": "4170",
+          "text": "Kern Valley Hospital......379-2681"
+        },
+        {
+          "line": "4180",
+          "text": "Kern River Health.........376-2276"
+        },
+        {
+          "line": "4190",
+          "text": "Dr. Jenkins...............379-3753"
+        },
+        {
+          "line": "4200",
+          "text": "Dr. Lange.................378-2486"
+        },
+        {
+          "line": "4210",
+          "text": "Ambulance.................376-2271"
+        },
+        {
+          "line": "4275",
+          "text": "W1"
+        },
+        {
+          "line": "4315",
+          "text": "W0"
+        },
+        {
+          "line": "4430",
+          "text": "I"
+        },
+        {
+          "line": "4430",
+          "text": "MONTHS.DAT"
+        },
+        {
+          "line": "4470",
+          "text": "* IMPORTANT DATES THIS MONTH "
+        },
+        {
+          "line": "4480",
+          "text": "I"
+        }
+      ]
+    },
+    {
+      "programId": "calendar-89",
+      "title": "CALEND89",
+      "path": "sams-calendar-program/CALEND89.BAS",
+      "strings": [
+        {
+          "line": "10",
+          "text": "EDIT "
+        },
+        {
+          "line": "122",
+          "text": "#1. Calculate Month"
+        },
+        {
+          "line": "124",
+          "text": "#2. Printout"
+        },
+        {
+          "line": "126",
+          "text": "Select Number  "
+        },
+        {
+          "line": "150",
+          "text": "Enter Month  "
+        },
+        {
+          "line": "255",
+          "text": "   0"
+        },
+        {
+          "line": "4020",
+          "text": "  SU  MO  TU  WE  TH  FR  SA"
+        },
+        {
+          "line": "4140",
+          "text": "Emergency.................911"
+        },
+        {
+          "line": "4150",
+          "text": "Fire Department...........376-2219"
+        },
+        {
+          "line": "4160",
+          "text": "Kern County Sheriff.......379-2641"
+        },
+        {
+          "line": "4170",
+          "text": "Kern Valley Hospital......379-2681"
+        },
+        {
+          "line": "4180",
+          "text": "Kern River Health.........376-2276"
+        },
+        {
+          "line": "4190",
+          "text": "Dr. Jenkins...............379-3753"
+        },
+        {
+          "line": "4200",
+          "text": "Dr. Lange.................378-2486"
+        },
+        {
+          "line": "4210",
+          "text": "Ambulance.................376-2271"
+        },
+        {
+          "line": "4275",
+          "text": "W1"
+        },
+        {
+          "line": "4315",
+          "text": "W0"
+        },
+        {
+          "line": "4430",
+          "text": "I"
+        },
+        {
+          "line": "4430",
+          "text": "MONTHS.DAT"
+        },
+        {
+          "line": "4470",
+          "text": "* IMPORTANT DATES THIS MONTH "
+        },
+        {
+          "line": "4480",
+          "text": "I"
+        }
+      ]
+    },
+    {
+      "programId": "calendar-91",
+      "title": "CALEND91",
+      "path": "sams-calendar-program/CALEND91.BAS",
+      "strings": [
+        {
+          "line": "10",
+          "text": "EDIT "
+        },
+        {
+          "line": "70",
+          "text": "#1. Calculate Month"
+        },
+        {
+          "line": "80",
+          "text": "#2. Printout"
+        },
+        {
+          "line": "90",
+          "text": "Select Number  "
+        },
+        {
+          "line": "140",
+          "text": "Enter Month  "
+        },
+        {
+          "line": "380",
+          "text": "   0"
+        },
+        {
+          "line": "440",
+          "text": "  SU  MO  TU  WE  TH  FR  SA"
+        },
+        {
+          "line": "680",
+          "text": "W1"
+        },
+        {
+          "line": "730",
+          "text": "W0"
+        },
+        {
+          "line": "850",
+          "text": "I"
+        },
+        {
+          "line": "850",
+          "text": "MONTHS.DAT"
+        },
+        {
+          "line": "890",
+          "text": "* IMPORTANT DATES THIS MONTH "
+        },
+        {
+          "line": "900",
+          "text": "I"
+        }
+      ]
+    },
+    {
+      "programId": "calendar-111",
+      "title": "CALENDAR.111",
+      "path": "sams-calendar-program/CALENDAR.111",
+      "strings": [
+        {
+          "line": "110",
+          "text": "EDIT "
+        },
+        {
+          "line": "155",
+          "text": "OPTIONS MENU"
+        },
+        {
+          "line": "165",
+          "text": "1. CALCULATE MONTH"
+        },
+        {
+          "line": "170",
+          "text": "2. PRINT SCREEN"
+        },
+        {
+          "line": "175",
+          "text": "3. SELECT PRINTER"
+        },
+        {
+          "line": "180",
+          "text": "4. QUIT PROGRAM"
+        },
+        {
+          "line": "185",
+          "text": "CHOOSE OPTION (1/2/3/4) "
+        },
+        {
+          "line": "240",
+          "text": "ENTER CURRENT MONTH # "
+        },
+        {
+          "line": "480",
+          "text": "   0"
+        },
+        {
+          "line": "540",
+          "text": "  SU  MO  TU  WE  TH  FR  SA"
+        },
+        {
+          "line": "950",
+          "text": "I"
+        },
+        {
+          "line": "950",
+          "text": "MONTHS.DAT"
+        },
+        {
+          "line": "990",
+          "text": "* IMPORTANT DATES THIS MONTH "
+        },
+        {
+          "line": "1000",
+          "text": "I"
+        },
+        {
+          "line": "1030",
+          "text": "Wrong number...try again from start."
+        }
+      ]
+    },
+    {
+      "programId": "newcal90",
+      "title": "NEWCAL90",
+      "path": "sams-calendar-program/NEWCAL90.BAS",
+      "strings": [
+        {
+          "line": "400",
+          "text": "OPTIONS MENU"
+        },
+        {
+          "line": "460",
+          "text": "1. SELECT MONTH"
+        },
+        {
+          "line": "490",
+          "text": "2. PRINT SCREEN"
+        },
+        {
+          "line": "510",
+          "text": "3. SELECT PRINTER"
+        },
+        {
+          "line": "540",
+          "text": "4. QUIT PROGRAM"
+        },
+        {
+          "line": "570",
+          "text": "CHOOSE OPTION (1/2/3/4): "
+        },
+        {
+          "line": "1000",
+          "text": "Selected month is:"
+        },
+        {
+          "line": "2000",
+          "text": "Print the screen"
+        },
+        {
+          "line": "3000",
+          "text": "Printer selected"
+        },
+        {
+          "line": "4000",
+          "text": "Back to page 1."
+        },
+        {
+          "line": "5000",
+          "text": "*Invalid entry...try again!"
+        }
+      ]
+    },
+    {
+      "programId": "lotto",
+      "title": "LOTTO",
+      "path": "sams-calendar-program/LOTTO.BAS",
+      "strings": [
+        {
+          "line": "30",
+          "text": "EDIT "
+        },
+        {
+          "line": "40",
+          "text": "####"
+        },
+        {
+          "line": "53",
+          "text": "Select these LOTTO numbers:"
+        },
+        {
+          "line": "110",
+          "text": "* If there are repeats, re-run the program."
+        },
+        {
+          "line": "133",
+          "text": " is "
+        },
+        {
+          "line": "133",
+          "text": "..then total the integers to "
+        }
+      ]
+    },
+    {
+      "programId": "mathtest",
+      "title": "MATHTEST",
+      "path": "sams-calendar-program/MATHTEST.BAS",
+      "strings": [
+        {
+          "line": "100",
+          "text": "HOW MUCH CHANGE IS DUE?"
+        },
+        {
+          "line": "180",
+          "text": "DOLLARS"
+        },
+        {
+          "line": "190",
+          "text": "QUARTERS"
+        },
+        {
+          "line": "200",
+          "text": "DIMES"
+        },
+        {
+          "line": "210",
+          "text": "NICKELS"
+        },
+        {
+          "line": "220",
+          "text": "PENNIES"
+        }
+      ]
+    },
+    {
+      "programId": "billboard",
+      "title": "BILBOARD",
+      "path": "sams-calendar-program/BILBOARD.BAS",
+      "strings": [
+        {
+          "line": "25",
+          "text": "*"
+        },
+        {
+          "line": "500",
+          "text": "LEAH PAZZELLI HAS ARRIVED IN BAKERSFIELD..."
+        },
+        {
+          "line": "510",
+          "text": "MET BY THE SHERIFF AT MEADOWS FIELD"
+        },
+        {
+          "line": "515",
+          "text": "WITH AN ARMORED CAR TO HAUL ALL THE MONEY.."
+        },
+        {
+          "line": "516",
+          "text": "TO THE BANK !!!"
+        },
+        {
+          "line": "520",
+          "text": "*"
+        }
+      ]
+    },
+    {
+      "programId": "baseball",
+      "title": "BASEBALL",
+      "path": "sams-calendar-program/BASEBALL.BAS",
+      "strings": [
+        {
+          "line": "160",
+          "text": "B A S E B A L L  M E N U "
+        },
+        {
+          "line": "190",
+          "text": "1.- Enter STARTing players"
+        },
+        {
+          "line": "200",
+          "text": "2.- Display STARTing players in BATTING order"
+        },
+        {
+          "line": "210",
+          "text": "3.- Display players in ALPHABETICAL order"
+        },
+        {
+          "line": "220",
+          "text": "4.- END program"
+        },
+        {
+          "line": "240",
+          "text": "Enter a number...1 thru 4 :"
+        },
+        {
+          "line": "440",
+          "text": "O.K. for #1"
+        },
+        {
+          "line": "600",
+          "text": "O.K. for #2"
+        },
+        {
+          "line": "770",
+          "text": "O.K. for #3"
+        },
+        {
+          "line": "998",
+          "text": "Tuff...try again"
+        }
+      ]
+    },
+    {
+      "programId": "telefone",
+      "title": "TELEFONE",
+      "path": "sams-calendar-program/TELEFONE.BAS",
+      "strings": [
+        {
+          "line": "300",
+          "text": "Telefone.dat"
+        },
+        {
+          "line": "360",
+          "text": "OPTIONS"
+        },
+        {
+          "line": "370",
+          "text": "#1. MAKE ENTRY IN DIRECTORY"
+        },
+        {
+          "line": "380",
+          "text": "#2. SEARCH DIRECTORY"
+        },
+        {
+          "line": "390",
+          "text": "#3. EXIT PROGRAM"
+        },
+        {
+          "line": "400",
+          "text": "CHOOSE OPTION (1/2/3)"
+        },
+        {
+          "line": "710",
+          "text": "Last Name.........: "
+        },
+        {
+          "line": "720",
+          "text": "FirstName.........: "
+        },
+        {
+          "line": "730",
+          "text": "Address #1........: "
+        },
+        {
+          "line": "740",
+          "text": "Address #2........: "
+        },
+        {
+          "line": "750",
+          "text": "City..............: "
+        },
+        {
+          "line": "760",
+          "text": "State.............: "
+        },
+        {
+          "line": "770",
+          "text": "Zip Code..........: "
+        },
+        {
+          "line": "780",
+          "text": "Telephone No......: "
+        },
+        {
+          "line": "855",
+          "text": "NAME TO SEARCH FOR: "
+        },
+        {
+          "line": "906",
+          "text": "THREE"
+        }
+      ]
+    },
+    {
+      "programId": "prntstyl",
+      "title": "PRNTSTYL",
+      "path": "sams-calendar-program/PRNTSTYL.BAS",
+      "strings": [
+        {
+          "line": "120",
+          "text": "!"
+        },
+        {
+          "line": "130",
+          "text": "    CITIZEN 180-D PRINT MODE CHART"
+        },
+        {
+          "line": "140",
+          "text": "!"
+        },
+        {
+          "line": "150",
+          "text": "   UNL ITA EXP DBL EMP CMP PRO ELT"
+        },
+        {
+          "line": "160",
+          "text": "   128  64  32  16  8   4   2   1"
+        },
+        {
+          "line": "260",
+          "text": "| * "
+        },
+        {
+          "line": "260",
+          "text": "|   "
+        },
+        {
+          "line": "270",
+          "text": "| * "
+        },
+        {
+          "line": "270",
+          "text": "|   "
+        },
+        {
+          "line": "280",
+          "text": "| * "
+        },
+        {
+          "line": "280",
+          "text": "|   "
+        },
+        {
+          "line": "290",
+          "text": "| * "
+        },
+        {
+          "line": "290",
+          "text": "|   "
+        },
+        {
+          "line": "300",
+          "text": "| * "
+        },
+        {
+          "line": "300",
+          "text": "|   "
+        },
+        {
+          "line": "310",
+          "text": "| * "
+        },
+        {
+          "line": "310",
+          "text": "|   "
+        },
+        {
+          "line": "320",
+          "text": "| * "
+        },
+        {
+          "line": "320",
+          "text": "|   "
+        },
+        {
+          "line": "330",
+          "text": "| * "
+        },
+        {
+          "line": "330",
+          "text": "|   "
+        },
+        {
+          "line": "350",
+          "text": "|   "
+        },
+        {
+          "line": "360",
+          "text": "!"
+        },
+        {
+          "line": "360",
+          "text": "PRINT MODE "
+        },
+        {
+          "line": "370",
+          "text": "!"
+        },
+        {
+          "line": "390",
+          "text": "@"
+        }
+      ]
+    },
+    {
+      "programId": "bas-seg",
+      "title": "BAS_SEG",
+      "path": "sams-calendar-program/BAS_SEG.BAS",
+      "strings": [
+        {
+          "line": "120",
+          "text": "IRVING"
+        },
+        {
+          "line": "130",
+          "text": "###.##"
+        },
+        {
+          "line": "130",
+          "text": "#,###.##"
+        },
+        {
+          "line": "130",
+          "text": "##,###.##"
+        },
+        {
+          "line": "130",
+          "text": "#,###,###.##"
+        },
+        {
+          "line": "130",
+          "text": "####,###0##"
+        },
+        {
+          "line": "220",
+          "text": "LOCATION OF F1 IS AT    "
+        },
+        {
+          "line": "220",
+          "text": "H"
+        }
+      ]
+    },
+    {
+      "programId": "bsavtest",
+      "title": "BSAVTEST",
+      "path": "sams-calendar-program/BSAVTEST.BAS",
+      "strings": [
+        {
+          "line": "20",
+          "text": "IRVING A. MEYERS"
+        }
+      ]
+    },
+    {
+      "programId": "clean",
+      "title": "CLEAN",
+      "path": "sams-calendar/CLEAN.BAS",
+      "strings": []
+    }
+  ]
+}

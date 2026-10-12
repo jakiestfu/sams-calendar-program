@@ -1,0 +1,27 @@
+100                                     REM
+110 REM ***********************************
+120 REM * DISPLAY MENU AND GET SELECTION  *
+130 REM ***********************************
+140                                     REM
+150 CLS
+160 LOCATE  9,20:PRINT TAB(20)"B A S E B A L L  M E N U "
+170 LOCATE 10,20:PRINT STRING$(25,61)
+180 REM
+190 LOCATE 11,20:PRINT "1.- Enter STARTing players"
+200 LOCATE 12,20:PRINT "2.- Display STARTing players in BATTING order"
+210 LOCATE 13,20:PRINT "3.- Display players in ALPHABETICAL order"
+220 LOCATE 14,20:PRINT "4.- END program"
+230 REM
+240 LOCATE 16,20:INPUT "Enter a number...1 thru 4 :";S
+250 REM
+260 IF S>=1 AND S<=4 THEN 998
+270 ON S GOTO 440,600,770,998
+440 PRINT "O.K. for #1"
+501 END
+600 PRINT "O.K. for #2"
+701 END
+770 PRINT "O.K. for #3"
+901 END
+998 PRINT "Tuff...try again"
+999 GOTO 240
+1000 END
