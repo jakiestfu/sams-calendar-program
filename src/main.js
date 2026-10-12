@@ -38,7 +38,15 @@ app.innerHTML = `
           <p id="program-note" class="program-note"></p>
           <div class="actions"><button id="run" class="secondary" type="button" hidden>Restart</button><button id="stop" class="secondary" type="button" hidden>Stop</button><button id="listing" class="secondary" type="button" aria-expanded="false">Read source</button></div>
           <p id="status" class="status" role="status"></p>
-          <div id="dos" class="dos" aria-label="DOS emulator"></div>
+          <div class="screen-frame">
+            <div id="dos" class="dos" aria-label="DOS emulator"></div>
+            <div id="screen-prompt" class="screen-prompt">
+              <span class="screen-prompt-label">Sam's DOS computer</span>
+              <p>Ready when you are.</p>
+              <button id="screen-run" type="button">Start program <span aria-hidden="true">→</span></button>
+              <small>Or choose another program on the left.</small>
+            </div>
+          </div>
           <p class="emulator-help">Click the DOS window to type. At the BASIC prompt: <code>LIST</code> shows code, <code>RUN</code> starts again, <code>SYSTEM</code> exits.</p>
           <div id="source-panel" class="source-panel" hidden><div class="source-heading"><div><h4>Full BASIC listing</h4><span id="program-path" class="program-path"></span></div><a id="download-listing" download>Download text ↗</a></div><pre id="source"></pre></div>
         </div>
@@ -133,6 +141,7 @@ async function stopPlayer() {
     try { await previous.stop() } catch (error) { console.warn('Emulator stop failed', error) }
   }
   el('dos').replaceChildren()
+  el('screen-prompt').hidden = false
   el('stop').disabled = true
   el('stop').hidden = true
 }
@@ -220,6 +229,7 @@ async function runProgram(id, jump = false) {
     return
   }
   el('status').textContent = `Loading ${program.title}…`
+  el('screen-prompt').hidden = true
   try {
     player = window.Dos(el('dos'), {
       url: `${base}bundles/${program.id}.jsdos`,
@@ -237,6 +247,7 @@ async function runProgram(id, jump = false) {
   } catch (error) {
     el('status').textContent = `Could not start the emulator: ${error.message}`
     el('run').textContent = 'Try again'
+    el('screen-prompt').hidden = false
   } finally {
     el('run').hidden = false
     el('run').disabled = false
@@ -244,6 +255,7 @@ async function runProgram(id, jump = false) {
 }
 
 el('run').addEventListener('click', () => runProgram(selectedProgram.id))
+el('screen-run').addEventListener('click', () => runProgram(selectedProgram.id))
 
 el('stop').addEventListener('click', async () => {
   ++runRequest

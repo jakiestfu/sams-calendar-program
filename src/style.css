@@ -57,8 +57,15 @@ section { padding-top: 60px; }
 .actions button[hidden] { display: none; }
 .status { min-height: 17px; color: #52685a; font: 12px 'DM Mono', monospace; margin: 13px 0 8px; }
 .status:empty { display: none; }
-.dos { width: 100%; min-height: 350px; aspect-ratio: 4 / 3; background: #14241a; border: 7px solid #294b36; border-radius: 4px; overflow: hidden; }
-.dos:empty::after { content: 'C:\\> _'; display: block; padding: 24px; color: #9adb8f; font: 18px 'DM Mono', monospace; }
+.screen-frame { position: relative; margin-top: 12px; }
+.dos { width: 100%; height: clamp(300px, 30vw, 360px); background: #14241a; border: 7px solid #294b36; border-radius: 4px; overflow: hidden; }
+.screen-prompt { position: absolute; inset: 7px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 24px; color: #e5f0dd; text-align: center; }
+.screen-prompt[hidden] { display: none; }
+.screen-prompt-label { color: #9cd093; font: 11px 'DM Mono', monospace; letter-spacing: .12em; text-transform: uppercase; }
+.screen-prompt p { max-width: 480px; margin: 0 0 4px; font-size: clamp(20px, 2.5vw, 29px); font-weight: 700; line-height: 1.2; letter-spacing: -.03em; }
+.screen-prompt button { padding: 10px 17px; border: 0; border-radius: 3px; background: #bde5ac; color: #153321; font-size: 14px; font-weight: 700; }
+.screen-prompt button:hover { background: #d3f4c5; }
+.screen-prompt small { color: #a9c5ad; font-size: 12px; }
 .emulator-help { font-size: 12px; line-height: 1.5; color: #66796b; margin: 11px 0 0; }
 .emulator-help code { background: #e8eee4; padding: 2px 4px; }
 .source-panel { margin-top: 16px; border-top: 1px solid #e1dacd; padding-top: 15px; }
@@ -123,7 +130,7 @@ footer a { color: #315c42; font-weight: 700; }
   .program-browser { padding: 9px; }
   .program-choice { font-size: 12px; padding: 8px 5px; }
   .emulator-card, .story-card { padding: 16px; }
-  .dos { min-height: 260px; }
+  .dos { height: 280px; }
   .step { grid-template-columns: 1fr; gap: 10px; }
   footer { display: grid; padding: 24px 18px 40px; }
 }
