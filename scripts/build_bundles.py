@@ -2,7 +2,7 @@
 
 import json
 from pathlib import Path
-from zipfile import ZIP_DEFLATED, ZipFile
+from zipfile import ZIP_DEFLATED, ZipFile, ZipInfo
 
 ROOT = Path(__file__).resolve().parents[1]
 DEST = ROOT / "public" / "bundles"
@@ -23,7 +23,10 @@ for program in json.loads((ROOT / "programs.json").read_text()):
         config += f'date 01-01-{program["year"]}\n'
     config += f'gwbasic {filename}\n'
     with ZipFile(output, "w", ZIP_DEFLATED) as archive:
-        archive.writestr(".jsdos/dosbox.conf", config)
+        # A fixed timestamp keeps generated bundles identical across builds.
+        config_info = ZipInfo(".jsdos/dosbox.conf", (1980, 1, 1, 0, 0, 0))
+        config_info.compress_type = ZIP_DEFLATED
+        archive.writestr(config_info, config)
         add_file(archive, disk / "GWBASIC.EXE")
         add_file(archive, disk / program["file"], filename)
         if program["type"] == "Calendar":

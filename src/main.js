@@ -1,5 +1,5 @@
 import programs from '../programs.json'
-import { chapters, experiments } from './stories.js'
+import { chapters } from './stories.js'
 import './style.css'
 
 const base = import.meta.env.BASE_URL
@@ -8,9 +8,10 @@ const app = document.querySelector('#app')
 
 let chapterIndex = 2
 let stepIndex = 0
-let selectedProgram = programById.get(chapters[chapterIndex].programId)
+let selectedProgram = programs[0]
 let player = null
 let listingRequest = 0
+let runRequest = 0
 
 // Birth years were supplied by the family; birthday month/day comes from the disk reminders.
 const birthYears = { susan: 1957, lisa: 1961 }
@@ -21,56 +22,45 @@ app.innerHTML = `
       <span class="brand">Sam's floppy disks</span>
       <div><a class="current" href="${base}">The story</a><a href="${base}data.html">Browse the disk data</a></div>
     </nav>
-    <div class="hero">
-      <p class="eyebrow">A family tour</p>
-      <h1>What Sam built<span class="cursor">_</span></h1>
-      <p>He made a calendar for family dates, kept improving it, and tried many other ideas in BASIC. Follow the clues on the disks, look at a few lines of code, then try the originals below.</p>
+    <div class="hero home-hero">
+      <div><p class="eyebrow">Sam's BASIC archive</p><h1>Pick a program<span class="cursor">_</span></h1></div>
+      <p>Click a name to run it beside the list. The family story is below.</p>
     </div>
   </header>
 
   <main>
+    <section class="launcher-section" id="try-it" aria-labelledby="launcher-title">
+      <h2 id="launcher-title" class="sr-only">Run Sam's programs</h2>
+      <div class="workbench">
+        <nav class="program-browser" aria-label="Programs on the disks"><div id="program-list"></div></nav>
+        <div class="emulator-card" id="player">
+          <div class="emulator-top"><div><span id="program-type" class="program-type"></span><h3 id="program-title"></h3><p id="program-summary"></p></div></div>
+          <p id="program-note" class="program-note"></p>
+          <div class="actions"><button id="run" class="secondary" type="button" hidden>Restart</button><button id="stop" class="secondary" type="button" hidden>Stop</button><button id="listing" class="secondary" type="button" aria-expanded="false">Read source</button></div>
+          <p id="status" class="status" role="status"></p>
+          <div id="dos" class="dos" aria-label="DOS emulator"></div>
+          <p class="emulator-help">Click the DOS window to type. At the BASIC prompt: <code>LIST</code> shows code, <code>RUN</code> starts again, <code>SYSTEM</code> exits.</p>
+          <div id="source-panel" class="source-panel" hidden><div class="source-heading"><div><h4>Full BASIC listing</h4><span id="program-path" class="program-path"></span></div><a id="download-listing" download>Download text ↗</a></div><pre id="source"></pre></div>
+        </div>
+      </div>
+    </section>
+
     <section class="timeline-section" aria-labelledby="timeline-title">
-      <div class="section-head"><p class="eyebrow">01 / Follow the clues</p><h2 id="timeline-title">A timeline from the disks</h2></div>
-      <p class="section-intro">Select a stop to see what a file shows. A saved file date tells us when that copy was last changed; a year inside a program tells us which calendar it was set up to show.</p>
+      <div class="section-head"><p class="eyebrow">The story behind it</p><h2 id="timeline-title">How it came together</h2></div>
+      <p class="section-intro">The dates below are clues from saved files or years in the code, not a complete account of when Sam wrote each program.</p>
       <div id="timeline" class="timeline" role="group" aria-label="Timeline stops"></div>
       <article class="story-card">
         <div class="story-meta"><span id="story-date-kind" class="date-kind"></span><span id="story-date"></span></div>
         <h3 id="story-title"></h3>
         <p id="story-intro" class="story-intro"></p>
-        <details class="evidence"><summary>How do we know this date?</summary><p id="story-evidence"></p></details>
-
-        <div class="ages">
-          <div><p class="eyebrow">Susan and Lisa</p><h4>Their ages in this chapter</h4><p class="age-explain">The family supplied Susan’s birth year (1957) and Lisa’s (1961). The disk lists “Suzy Kelley” on January 25 and “Lisa Fox” on July 24; the ages below use those birthday dates.</p></div>
-          <div class="age-results"><p id="susan-age"></p><p id="lisa-age"></p></div>
-        </div>
-
+        <div class="story-actions"><div class="age-results"><span id="susan-age"></span><span id="lisa-age"></span></div><button id="run-chapter" class="story-run" type="button">Run the related program ↑</button></div>
+        <details class="evidence"><summary>Where does this date come from?</summary><p id="story-evidence"></p><p>Birth years came from family; January 25 and July 24 are birthday entries on the disks. The age calculation uses those entries for Susan and Lisa.</p></details>
         <div class="walkthrough">
-          <div class="walkthrough-head"><div><p class="eyebrow">02 / Read a little code</p><h4>What he told the computer to do</h4></div><span id="step-count"></span></div>
-          <div class="step"><h5 id="step-title"></h5><pre id="step-code"></pre><p id="step-plain"></p><span id="step-source" class="source-note"></span></div>
-          <div class="step-controls"><button id="previous-step" class="text-button" type="button">← Previous</button><div id="step-dots" aria-label="Walkthrough steps"></div><button id="next-step" class="text-button" type="button">Next →</button></div>
+          <div class="walkthrough-head"><h4>A few lines of code, explained</h4><span id="step-count"></span></div>
+          <div class="step"><div><h5 id="step-title"></h5><p id="step-plain"></p><span id="step-source" class="source-note"></span></div><pre id="step-code"></pre></div>
+          <div class="step-controls"><button id="previous-step" class="text-button" type="button">← Previous</button><button id="next-step" class="text-button" type="button">Next →</button></div>
         </div>
       </article>
-    </section>
-
-    <section class="experiments" aria-labelledby="experiments-title">
-      <div class="section-head"><p class="eyebrow">Also on the disks</p><h2 id="experiments-title">Small ideas and experiments</h2></div>
-      <p class="section-intro">These programs do not have reliable writing dates, so they sit outside the timeline. Select one to bring it to the emulator.</p>
-      <div id="experiment-list" class="experiment-list"></div>
-    </section>
-
-    <section class="emulator-section" id="try-it" aria-labelledby="emulator-title">
-      <div class="section-head"><p class="eyebrow">03 / Try the original</p><h2 id="emulator-title">Sam's program, running in DOS</h2></div>
-      <p class="section-intro">This runs the recovered GW-BASIC files in a browser emulator. Programs and their old assumptions remain as they were on the disks.</p>
-      <div class="emulator-card">
-        <div class="emulator-top"><div><span id="program-type" class="program-type"></span><h3 id="program-title"></h3><p id="program-summary"></p></div><span id="program-path" class="program-path"></span></div>
-        <p id="program-note" class="program-note"></p>
-        <div class="actions"><button id="run" class="primary" type="button">Run this program</button><button id="stop" class="secondary" type="button" disabled>Stop</button><button id="listing" class="secondary" type="button">See full source</button></div>
-        <p id="status" class="status" role="status">Choose Run this program to start.</p>
-        <div id="dos" class="dos" aria-label="DOS emulator"></div>
-        <div id="source-panel" class="source-panel" hidden><div class="source-heading"><h4>Full decoded BASIC listing</h4><a id="download-listing" download>Download text ↗</a></div><pre id="source"></pre></div>
-        <p class="emulator-help">Click inside the DOS window to type. At the BASIC prompt, <code>LIST</code> shows the source, <code>RUN</code> starts it again, and <code>SYSTEM</code> exits. Printer output may not appear in the browser.</p>
-        <details class="all-programs"><summary>Choose any of the 15 programs</summary><div id="program-list"></div></details>
-      </div>
     </section>
   </main>
   <footer><a href="${base}data.html">Browse every readable disk record →</a><span>The original files remain unchanged.</span></footer>
@@ -120,15 +110,6 @@ function renderStep() {
   el('step-source').textContent = step.source
   el('previous-step').disabled = stepIndex === 0
   el('next-step').disabled = stepIndex === chapter.steps.length - 1
-  el('step-dots').replaceChildren(...chapter.steps.map((_, index) => {
-    const dot = document.createElement('button')
-    dot.type = 'button'
-    dot.className = index === stepIndex ? 'dot active' : 'dot'
-    dot.setAttribute('aria-label', `Step ${index + 1}`)
-    dot.setAttribute('aria-current', String(index === stepIndex))
-    dot.addEventListener('click', () => { stepIndex = index; renderStep() })
-    return dot
-  }))
 }
 
 function selectChapter(index) {
@@ -143,10 +124,9 @@ function selectChapter(index) {
   renderTimeline()
   renderAges()
   renderStep()
-  selectProgram(chapter.programId)
 }
 
-async function stop() {
+async function stopPlayer() {
   if (player) {
     const previous = player
     player = null
@@ -154,89 +134,129 @@ async function stop() {
   }
   el('dos').replaceChildren()
   el('stop').disabled = true
+  el('stop').hidden = true
 }
 
-async function selectProgram(id, scroll = false) {
-  const program = programById.get(id)
-  if (!program) return
-  if (program.id !== selectedProgram?.id) await stop()
-  selectedProgram = program
-  el('program-type').textContent = program.type
-  el('program-title').textContent = program.title
-  el('program-summary').textContent = program.summary
-  el('program-path').textContent = `${program.disk}/${program.file}`
-  el('program-note').textContent = program.note
-  el('status').textContent = 'Choose Run this program to start.'
+function renderSelectedProgram() {
+  el('program-type').textContent = selectedProgram.type
+  el('program-title').textContent = selectedProgram.title
+  el('program-summary').textContent = selectedProgram.summary
+  el('program-path').textContent = `${selectedProgram.disk}/${selectedProgram.file}`
+  el('program-note').textContent = selectedProgram.note
   el('source-panel').hidden = true
+  el('listing').setAttribute('aria-expanded', 'false')
+  el('listing').textContent = 'Read source'
   el('source').textContent = ''
   listingRequest++
-  renderProgramList()
-  if (scroll) el('try-it').scrollIntoView({ behavior: 'smooth' })
+  updateProgramList()
+}
+
+function updateProgramList() {
+  for (const button of el('program-list').querySelectorAll('button')) {
+    const active = button.dataset.programId === selectedProgram.id
+    button.classList.toggle('active', active)
+    if (active) button.setAttribute('aria-current', 'true')
+    else button.removeAttribute('aria-current')
+  }
 }
 
 function renderProgramList() {
-  el('program-list').replaceChildren(...programs.map(program => {
+  const makeGroup = (label, items) => {
+    const group = document.createElement('div')
+    group.className = 'program-group'
+    const heading = document.createElement('h3')
+    heading.textContent = label
+    group.append(heading, ...items.map(program => {
     const button = document.createElement('button')
     button.type = 'button'
-    button.className = program.id === selectedProgram.id ? 'program-choice active' : 'program-choice'
-    button.textContent = program.title
-    button.addEventListener('click', () => selectProgram(program.id))
+    button.className = 'program-choice'
+    button.dataset.programId = program.id
+    button.setAttribute('aria-label', `Run ${program.title}`)
+    const title = document.createElement('span')
+    title.textContent = program.title
+    const arrow = document.createElement('span')
+    arrow.className = 'play-arrow'
+    arrow.setAttribute('aria-hidden', 'true')
+    arrow.textContent = 'Run ›'
+    button.append(title, arrow)
+    button.addEventListener('click', () => runProgram(program.id, true))
     return button
-  }))
+    }))
+    return group
+  }
+  el('program-list').replaceChildren(
+    makeGroup('Calendars', programs.filter(program => program.type.startsWith('Calendar'))),
+    makeGroup('Other programs', programs.filter(program => !program.type.startsWith('Calendar')))
+  )
 }
 
-function renderExperiments() {
-  el('experiment-list').replaceChildren(...experiments.map(experiment => {
-    const article = document.createElement('article')
-    article.className = 'experiment-card'
-    const title = document.createElement('h3')
-    title.textContent = experiment.title
-    const description = document.createElement('p')
-    description.textContent = experiment.text
-    const code = document.createElement('code')
-    code.textContent = experiment.code
-    const button = document.createElement('button')
-    button.type = 'button'
-    button.textContent = 'Try this program →'
-    button.addEventListener('click', () => selectProgram(experiment.programId, true))
-    article.append(title, description, code, button)
-    return article
-  }))
+function showPlayer() {
+  const top = el('player').getBoundingClientRect().top
+  if (top < 0 || top > window.innerHeight - 180) {
+    el('player').scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
 }
 
 el('previous-step').addEventListener('click', () => { if (stepIndex > 0) { stepIndex--; renderStep() } })
 el('next-step').addEventListener('click', () => { if (stepIndex < chapters[chapterIndex].steps.length - 1) { stepIndex++; renderStep() } })
+el('run-chapter').addEventListener('click', () => runProgram(chapters[chapterIndex].programId, true))
 
-el('run').addEventListener('click', async () => {
-  await stop()
+async function runProgram(id, jump = false) {
+  const program = programById.get(id)
+  if (!program) return
+  const request = ++runRequest
+  el('run').hidden = true
+  el('run').disabled = true
+  await stopPlayer()
+  if (request !== runRequest) return
+  selectedProgram = program
+  renderSelectedProgram()
+  if (jump) showPlayer()
   if (typeof window.Dos !== 'function') {
     el('status').textContent = 'The js-dos emulator could not load. Check your connection and reload.'
+    el('run').textContent = 'Try again'
+    el('run').hidden = false
+    el('run').disabled = false
     return
   }
-  el('status').textContent = 'Loading the original DOS files…'
+  el('status').textContent = `Loading ${program.title}…`
   try {
     player = window.Dos(el('dos'), {
-      url: `${base}bundles/${selectedProgram.id}.jsdos`,
+      url: `${base}bundles/${program.id}.jsdos`,
       autoStart: true,
       backendLocked: true,
       theme: 'retro',
       fsChanges: { local: false },
       onEvent: event => {
-        if (event === 'ci-ready') el('status').textContent = 'Running. Click the DOS window to use the keyboard.'
+        if (request === runRequest && event === 'ci-ready') el('status').textContent = 'Running. Click the DOS window to type.'
       },
     })
     el('stop').disabled = false
+    el('stop').hidden = false
+    el('run').textContent = 'Restart'
   } catch (error) {
     el('status').textContent = `Could not start the emulator: ${error.message}`
+    el('run').textContent = 'Try again'
+  } finally {
+    el('run').hidden = false
+    el('run').disabled = false
   }
-})
+}
 
-el('stop').addEventListener('click', async () => { await stop(); el('status').textContent = 'Stopped. Run this program to start again.' })
+el('run').addEventListener('click', () => runProgram(selectedProgram.id))
+
+el('stop').addEventListener('click', async () => {
+  ++runRequest
+  await stopPlayer()
+  el('status').textContent = 'Stopped. Choose a program or run this one again.'
+})
 
 el('listing').addEventListener('click', async () => {
   const panel = el('source-panel')
-  if (!panel.hidden) { panel.hidden = true; return }
+  if (!panel.hidden) { panel.hidden = true; el('listing').setAttribute('aria-expanded', 'false'); el('listing').textContent = 'Read source'; return }
   panel.hidden = false
+  el('listing').setAttribute('aria-expanded', 'true')
+  el('listing').textContent = 'Hide source'
   el('source').textContent = 'Loading source…'
   const request = ++listingRequest
   const url = `${base}listings/${selectedProgram.id}.txt`
@@ -252,5 +272,6 @@ el('listing').addEventListener('click', async () => {
   }
 })
 
-renderExperiments()
+renderProgramList()
+renderSelectedProgram()
 selectChapter(chapterIndex)

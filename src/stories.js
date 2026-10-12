@@ -166,12 +166,3 @@ export const chapters = [
     ]
   }
 ]
-
-export const experiments = [
-  { programId: 'lotto', title: 'Lottery numbers', text: 'It picks six numbers from 1 to 49. He even left a note about what to do if a number repeats.', code: 'A=INT(RND*49+1)' },
-  { programId: 'mathtest', title: 'Making change', text: 'It works out dollars and coins from an amount in cents, one denomination at a time.', code: 'CHANGE = CHANGE MOD 25' },
-  { programId: 'billboard', title: 'A scrolling announcement', text: 'It moves a family message across the old text screen, like a little Times Square sign.', code: 'DATA "LEAH PAZZELLI HAS ARRIVED..."' },
-  { programId: 'telefone', title: 'A telephone book', text: 'It sketches an address book with fixed-size records. The entry form works, but the search is unfinished.', code: 'FIELD #1, 20 AS LASTNAME$ ...' },
-  { programId: 'baseball', title: 'A baseball roster', text: 'It offers a menu for entering and sorting players, but the choices are still placeholders.', code: 'PRINT "B A S E B A L L  M E N U"' },
-  { programId: 'prntstyl', title: 'Printer experiments', text: 'It tries combinations of styles for a Citizen 180-D printer, showing how much he explored the hardware.', code: 'LPRINT "PRINT MODE ";N' },
-]

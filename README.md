@@ -18,7 +18,7 @@ The two `CALEND98.BAS` files have the same calendar logic but different first co
 
 ## Explore the family story and disk data
 
-The [Vite](https://vite.dev/) site opens with an **interactive timeline above the DOS emulator**. Each stop explains one clue in everyday language, shows the source or data behind it, and walks through a few instructions one step at a time. The six smaller projects without trustworthy dates appear separately. Selecting a story or project chooses its program in the emulator below; the full decoded listing is also available there.
+The [Vite](https://vite.dev/) site opens with **all fifteen programs beside the DOS emulator**. Click any program to start it immediately; choose another to switch. The selected program's summary, restart and stop controls, and decoded source are in the same panel. A shorter family timeline follows the launcher. Each stop explains one dated clue, shows Susan's and Lisa's ages, and walks through a few lines of code. Its **Run the related program** button returns to the launcher and starts that program.
 
 The separate **Browse the disk data** page (`data.html`) works without starting DOS. It collects all twelve month reminder files, the fourteen-row month table, the contact lists embedded in three calendar programs, readable notes and templates, batch-file text, and the quoted words in each of the fifteen decoded programs. It shows one copy where disk files have identical contents and gives the original path or source listing for each group. [`scripts/build_data.py`](scripts/build_data.py) regenerates its UTF-8 [`archive-data.json`](public/archive-data.json) from the recovered files and decoded listings; the originals are read only.
 
@@ -49,7 +49,7 @@ pnpm install
 pnpm dev
 ```
 
-Open the local address printed by Vite, follow the timeline, and click **Run this program** below it. Click inside the DOS window for keyboard input. At the GW-BASIC prompt, `LIST` displays the program, `RUN` starts it again, and `SYSTEM` exits. Open `/data.html` to read the recovered text without running DOS. For a deployable static site, run `pnpm build` and host the generated `dist/` folder on any static host. Opening `index.html` directly as a `file://` page will not work.
+Open the local address printed by Vite and click a program in the list to start it. Click inside the DOS window for keyboard input. At the GW-BASIC prompt, `LIST` displays the program, `RUN` starts it again, and `SYSTEM` exits. Open `/data.html` to read the recovered text without running DOS. For a deployable static site, run `pnpm build` and host the generated `dist/` folder on any static host. Opening `index.html` directly as a `file://` page will not work.
 
 ### GitHub Pages
 
